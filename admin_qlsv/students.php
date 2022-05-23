@@ -8,7 +8,7 @@ function connect_db()
      
     // Nếu chưa kết nối thì thực hiện kết nối
     if (!$conn){
-        $conn = mysqli_connect('localhost', 'root', 'thanhtb01', 'btlnhom9') or die (`Can't not connect to database`);
+        $conn = mysqli_connect('localhost', 'root', '', 'btlnhom9') or die (`Can't not connect to database`);
         // Thiết lập font chữ kết nối
         mysqli_set_charset($conn, 'utf8');
     }

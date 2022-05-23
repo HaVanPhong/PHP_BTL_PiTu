@@ -2,7 +2,7 @@
     
     require 'students.php';
     $id = isset($_POST['idAccount']) ? (int)$_POST['idAccount'] : '';
-    if ($id){
+    if($id){
         delete_account($id);
     }
     
