@@ -117,10 +117,6 @@
     }
 </style>
 
-<?php
-//include 'connect.php';
-
-?>
 <form action="" method="post">
     <div class="khoanThu">
         <div class="timKiem">
