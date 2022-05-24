@@ -14,7 +14,7 @@
                     include ("#");
 
                 }elseif ($bientam=='khoahoc'){
-                    include("#");
+                    include("khoahoc.php");
                 }elseif ($bientam=='khoanthu'){ 
                     include("khoanthu.php");
                 }elseif ($bientam=='thongkebaocao'){ 
@@ -23,7 +23,11 @@
                     include("#");               
                 }elseif ($bientam=='taokhoanthu'){ 
                     include("taokhoanthu.php");               
-                }else{ ?>
+                }elseif ($bientam=='logout'){
+                    header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");
+                    
+                }
+                else { ?>
 
                 <?php              
                 }
