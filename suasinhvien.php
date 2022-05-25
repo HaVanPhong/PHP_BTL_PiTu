@@ -4,19 +4,18 @@
     session_start();
     include 'connect.php';
     $studentID = $_GET['id'];
-    $sql_select = "SELECT * FROM `student` WHERE studentID = $studentID";
-    $query_select = mysqli_query($conn, $sql_select);
+    $sql_select = "SELECT * FROM `student`
+    WHERE studentID = $studentID";
+    $query_select = mysqli_query($connect, $sql_select);
     $row = mysqli_fetch_assoc($query_select);
     
     if(!empty($_POST['edit_student'])) {
         //Lay data
-
         $data['studentName'] = isset($_POST['name']) ? $_POST['name'] : '';
         $data['studentPhone'] = isset($_POST['phone']) ? $_POST['phone'] : '';
         $data['studentEmail'] = isset($_POST['email']) ? $_POST['email'] : '';
         $data['studentAdress'] = isset($_POST['address']) ? $_POST['address'] : '';
         $data['studentDate_Birth'] = isset($_POST['date_birth']) ? $_POST['date_birth'] : '';
-        $data['studentMoney'] = isset($_POST['amount']) ? $_POST['amount'] : '';
         
         $errors = array();
         if(empty($data['studentName'])){
@@ -34,9 +33,7 @@
         if(empty($data['studentDate_Birth'])){
             $errors['studentDate_Birth'] = '<p class="errStyle" >*Chưa nhập ngày sinh</p>';
         }
-        if(empty($data['studentMoney'])){
-            $errors['studentMoney'] = '<p class="errStyle">*Chưa nhập số dư tài khoản</p>';
-        }
+        
         
         if(!$errors){
             // add_student(
@@ -52,7 +49,6 @@
             $studentEmail = ($data['studentEmail']);
             $studentAdress = ($data['studentAdress']);
             $studentDate_Birth = ($data['studentDate_Birth']);
-            $studentMoney = ($data['studentMoney']);
             
             $sql = "UPDATE  `student`  SET 
             `studentName` = '$studentName', 
@@ -60,25 +56,23 @@
             `studentAdress` = '$studentAdress', 
             `studentEmail` = '$studentEmail', 
             `studentDate_Birth` = '$studentDate_Birth',
-            `studentMoney` = '$studentMoney' 
             WHERE `studentID` = '$studentID'" ;
                 
-                $query = mysqli_query($conn, $sql);
+                $query = mysqli_query($connect, $sql);
                 
                 if($query){
-                    echo ' <script language="javascript">alert("Sửa thông tin sinh viên thành công");</script>';
+                    echo '<script language="javascript">alert("Sửa thông tin sinh viên thành công");</script>';
                     }
                 // Trở về trang danh sách
-                
-                echo ' <script language="javascript">window.location="dssinhvien.php"</script> ';
+                echo '<script language="javascript">window.location="index.php?quanly=thongtin</script>';
         }
     }
     if(!empty($_POST['huy'])){
-        echo ' <script language="javascript">window.location="dssinhvien.php"</script> ';
+        echo ' <script language="javascript">window.location="index.php?quanly=thongtin"</script> ';
     }
 ?>
 <div>
-    <form action="suasinhvien.php?id=" method="post">
+    <form action="" method="post">
         <table align="center" class="sua">
             <tr>
                 <td><label for="id">ID student</label></td>
@@ -125,20 +119,13 @@
                     <label for="date_birth">Ngày sinh</label>
                 </td>
                 <td>
-                    <input type="date" name="date_birth" value="<?php echo $row['studentDate_Birth']; ?>">
+                    <input type="text" name="date_birth" value="<?php echo $row['studentDate_Birth']; ?>">
                     <?php if (!empty($errors['studentDate_Birth'])) echo $errors['studentDate_Birth']; ?>
                 </td>
-                <td>
-                    <label for="amount">Số dư tài khoản</label>
-                </td>
-                <td>
-                    <input type="text" name="amount" value="<?php echo $row['studentMoney']; ?>">
-                    <?php if (!empty($errors['studentMoney'])) echo $errors['studentMoney']; ?>
-
-                </td>   
+                  
             </tr>
             <tr>
-                <td><input type="submit" value="Sửa học viên" name="edit_student"></td>
+                <td><input type="submit"  value="Sửa học viên" name="edit_student"></td>
                 <td><input type="submit" value="Hủy bỏ" style="background-color: red;" name="huy"></td>
             </tr>
         </table>

@@ -60,6 +60,9 @@
                     include("danhgia.php");
 
                 }
+                elseif($bientam=='suathongtin'){
+                    include("suasinhvien.php");
+                }
                 else{ ?>
 
 
