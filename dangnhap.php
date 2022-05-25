@@ -23,9 +23,9 @@
         </div>
         <div class="login-connect">
 
-            <a href="#" class="bt-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+            <a href="#" class="bt-facebook"><img src="./img/1200px-Facebook_Logo_(2019).png" alt=""> Facebook</a>
 
-            <a href="#" class="bt-google"><i class="fa fa-google"></i> Google</a>
+            <a href="#" class="bt-google"><img src="./img/Google__G__Logo.svg.png" alt=""> Google</a>
 
         </div>
 

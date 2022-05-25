@@ -7,11 +7,10 @@
     .khoanThu {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         justify-content: center;
-        margin-bottom: 20px;
     }
 
     .timKiemTitle {
-
+        margin-top: 30px;
         font-size: 20px;
         font-weight: 500;
         color: #707070;
@@ -38,7 +37,7 @@
         margin: 10px;
         width: 150px;
     }
-
+    
     .btTim {
         margin-left: 30px;
     }
@@ -130,7 +129,7 @@
             <div class="timKiemThoiGian">
                 <input class="inputTim" type="date" id="ngaybatdau" name="ngaybatdau" value='<?php echo $_POST['ngaybatdau'];?>' placeholder="Từ ngày">
                 <input class="inputTim" type="date" id="ngayketthuc" name="ngayketthuc" value='<?php echo $_POST['ngayketthuc'];?>' placeholder="Đến ngày">
-                <input class="inputTim" type="number" id="giatien" min="1" name="giatien" value='<?php echo $_POST['giatien'];?>' placeholder="Giá tiền">
+                <input class="inputTim" type="number" id="giatien" min="1000" name="giatien" step="1000" value='<?php echo $_POST['giatien'];?>' placeholder="Giá tiền">
 
                 <div class="btTim">
                     <input class="btLoc" type="submit" value="Lọc" name="loc" id="loc">

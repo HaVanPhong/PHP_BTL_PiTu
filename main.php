@@ -27,7 +27,7 @@
                 </div>
                    <?php
                 }elseif ($bientam=='blog'){ 
-                    include("#");
+                    include("blog.php");
                 }elseif ($bientam=='lienHe'){ 
                     include("#");
                 }elseif ($bientam=='find'){ 

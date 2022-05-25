@@ -45,9 +45,9 @@
         box-sizing: border-box;
     }
     table{
-        padding: 20px;
+        position: relative;
         border-collapse: collapse;
-        margin-left: 100px;
+        left: 25%;
     }
     .dssinhvien .title{
         background: #7CC242;
@@ -67,6 +67,7 @@
         color: #707070;
     }
     .btn-themhv{
+        position: relative;
         display: flex;
         width: 150px;
         background: #7CC242;
@@ -76,6 +77,7 @@
         cursor: pointer;
         white-space: nowrap;
         border-radius: 20px;
+        left: 80%;
     }
     .indam{
         font-weight: bold;

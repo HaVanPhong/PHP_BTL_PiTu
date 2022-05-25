@@ -322,11 +322,15 @@ footer .copyright {
 
 .login h2 {
     margin-bottom: 20px;
+    letter-spacing: 5px !important;
+    font-size: 28px;
 }
 
 .login h2,
 .login label {
     color: #707070;
+    font-family: Calibri;
+    letter-spacing: 2px;
 }
 
 .login form {
@@ -386,9 +390,19 @@ footer .copyright {
     background-color: #fff;
 }
 
+.login-connect img {
+    width: 20px;
+    position: absolute;
+    margin: 4px -24px;
+}
+
 .forgot a {
     font-size: 13xp;
     float: right;
+    text-decoration: underline;
+    color: #6E6E6E;
+    letter-spacing: 2px;
+    font-family: Calibri;
 
 }
 
@@ -408,6 +422,16 @@ footer .copyright {
     text-align: center;
     font-weight: 600;
     padding: 10px;
+    color: #737373;
+    letter-spacing: 2px;
+}
+.noaccount a {
+    color: #737373;
+    text-decoration: underline;
+}
+
+.noaccount a:hover {
+    color: #7CC242;
 }
 
 /* form nhập thông tin cá nhân */
