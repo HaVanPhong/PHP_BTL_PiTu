@@ -167,7 +167,7 @@ i{
                     </td>
                     <td  class="editing">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                        <p><a href="">Chỉnh sửa</a></p>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
                     </td>
                 </tr>
                 <tr>
@@ -177,7 +177,7 @@ i{
                     </td>
                     <td  class="editing">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                        <p><a href="">Chỉnh sửa</a></p>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
                     </td>
                 </tr>
                 <tr>
@@ -187,7 +187,7 @@ i{
                     </td>
                     <td  class="editing">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                        <p><a href="">Chỉnh sửa</a></p>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
                     </td>
                 </tr>
                 <tr>
@@ -197,7 +197,7 @@ i{
                     </td>
                     <td  class="editing">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                        <p><a href="">Chỉnh sửa</a></p>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
                     </td>
                 </tr>
                 <tr>
@@ -207,7 +207,7 @@ i{
                     </td>
                     <td  class="editing">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                        <p><a href="">Chỉnh sửa</a></p>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
                     </td>
                 </tr>
             </table>

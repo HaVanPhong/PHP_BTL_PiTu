@@ -1,8 +1,7 @@
 
 <?php
     // require 'students.php';
-    session_start();
-    include 'connect.php';
+    
     $studentID = $_GET['id'];
     $sql_select = "SELECT * FROM `student`
     WHERE studentID = $studentID";
@@ -34,29 +33,20 @@
             $errors['studentDate_Birth'] = '<p class="errStyle" >*Chưa nhập ngày sinh</p>';
         }
         
-        
-        if(!$errors){
-            // add_student(
-            //     $data['studentEmail'],
-            //     $data['studentName'] ,
-            //     $data['studentPhone'],
-            //     $data['studentAdress'],
-            //     $data['studentDate_Birth'],
-            //     $data['studentMoney'],
-            //     $_GET['id']);
+        if(!count($errors)){
             $studentName = ($data['studentName']);
             $studentPhone = ($data['studentPhone']);
             $studentEmail = ($data['studentEmail']);
             $studentAdress = ($data['studentAdress']);
             $studentDate_Birth = ($data['studentDate_Birth']);
             
-            $sql = "UPDATE  `student`  SET 
-            `studentName` = '$studentName', 
-            `studentPhone` = '$studentPhone',
-            `studentAdress` = '$studentAdress', 
-            `studentEmail` = '$studentEmail', 
-            `studentDate_Birth` = '$studentDate_Birth',
-            WHERE `studentID` = '$studentID'" ;
+            $sql = "UPDATE  student  SET 
+            studentName = '$studentName', 
+            studentPhone = '$studentPhone',
+            studentAdress = '$studentAdress', 
+            studentEmail = '$studentEmail',
+            studentDate_Birth = '$studentDate_Birth'
+            WHERE studentID = '$studentID'" ;
                 
                 $query = mysqli_query($connect, $sql);
                 
@@ -64,14 +54,16 @@
                     echo '<script language="javascript">alert("Sửa thông tin sinh viên thành công");</script>';
                     }
                 // Trở về trang danh sách
-                echo '<script language="javascript">window.location="index.php?quanly=thongtin</script>';
+                echo '<script language="javascript">window.location="index.php?quanly=thongtin"</script>';
         }
     }
     if(!empty($_POST['huy'])){
         echo ' <script language="javascript">window.location="index.php?quanly=thongtin"</script> ';
     }
 ?>
-<div>
+<div class="form-edit">
+    <h2>Sửa thông tin cá nhân</h2>
+    <hr>
     <form action="" method="post">
         <table align="center" class="sua">
             <tr>
@@ -119,13 +111,13 @@
                     <label for="date_birth">Ngày sinh</label>
                 </td>
                 <td>
-                    <input type="text" name="date_birth" value="<?php echo $row['studentDate_Birth']; ?>">
+                    <input type="date" name="date_birth" value="<?php echo $row['studentDate_Birth']; ?>">
                     <?php if (!empty($errors['studentDate_Birth'])) echo $errors['studentDate_Birth']; ?>
                 </td>
                   
             </tr>
             <tr>
-                <td><input type="submit"  value="Sửa học viên" name="edit_student"></td>
+                <td><input type="submit"  value="Sửa thông tin" name="edit_student"></td>
                 <td><input type="submit" value="Hủy bỏ" style="background-color: red;" name="huy"></td>
             </tr>
         </table>
@@ -133,10 +125,22 @@
 </div>
 
 <style>
+    
+    .form-edit hr{
+        width: 1200px;
+        background: #737373;
+        border: none;
+    }
+    .form-edit h2{
+        margin:30px 15%;
+        font-size: 35px;
+        color: #737373;
+        font-family: Calibri;
+    }
     table{
         color: #707070;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        
+        margin-left: 12%;
     }
     .sua td{
         position: relative;

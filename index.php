@@ -23,6 +23,7 @@ session_start();
         include 'head.php';
         include 'menu.php';
         include 'main.php';
+        include 'iconlienhe.php';
         include 'footer.php';
     ?>
 

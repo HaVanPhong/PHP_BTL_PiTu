@@ -1,7 +1,6 @@
 
 <?php
     // require 'students.php';
-    session_start();
     include 'connect.php';
     $studentID = $_GET['id'];
     $sql_select = "SELECT * FROM `student` WHERE studentID = $studentID";
@@ -39,14 +38,7 @@
         }
         
         if(!$errors){
-            // add_student(
-            //     $data['studentEmail'],
-            //     $data['studentName'] ,
-            //     $data['studentPhone'],
-            //     $data['studentAdress'],
-            //     $data['studentDate_Birth'],
-            //     $data['studentMoney'],
-            //     $_GET['id']);
+            
             $studentName = ($data['studentName']);
             $studentPhone = ($data['studentPhone']);
             $studentEmail = ($data['studentEmail']);
@@ -60,8 +52,8 @@
             `studentAdress` = '$studentAdress', 
             `studentEmail` = '$studentEmail', 
             `studentDate_Birth` = '$studentDate_Birth',
-            `studentMoney` = '$studentMoney' 
-            WHERE `studentID` = '$studentID'" ;
+            `studentMoney` = '$studentMoney'
+            WHERE `studentID` = '$studentID'";
                 
                 $query = mysqli_query($conn, $sql);
                 
@@ -78,7 +70,7 @@
     }
 ?>
 <div>
-    <form action="suasinhvien.php?id=" method="post">
+    <form action="" method="post">
         <table align="center" class="sua">
             <tr>
                 <td><label for="id">ID student</label></td>
