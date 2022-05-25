@@ -4,7 +4,7 @@
         .mycourse {
             display: flex;
             border-bottom: #7cc242 2px solid;
-            height: 150px;
+            height: 170px;
             padding: 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             
@@ -18,7 +18,7 @@
             height: 100%;
             width: 250px;
             padding: 10px;
-        }
+        }   
 
         .p2 {
             width: 35%;
