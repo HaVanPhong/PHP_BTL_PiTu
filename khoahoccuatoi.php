@@ -126,15 +126,13 @@
         $query_show =mysqli_query($connect,$sql_show);
 
         ?>
-
-
         <div class="titleList">
             <div class="course">
-                <i class="fa fa-folder-open" aria-hidden="true" style="padding: 0px  10px 0px 0px;"></i>
-                <p><a href="#"> Các khóa học của tôi</a></p> 
+                <i style="margin-top: 5px;"class="fa fa-folder-open" aria-hidden="true" style="padding: 0px  10px 0px 0px;"></i>
+                <p><a style="font-family: Segoe UI;" href="#"> Các khóa học của tôi</a></p> 
             </div>
-            <div class="user">
-                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            <a style="color: #7CC242; font-family: Segoe UI; font-size: 20px;" href="index.php?quanly=thongtin" class="user">
+                <i style="margin-top: 5px;" class="fa fa-graduation-cap" aria-hidden="true"></i>
                 <p class="userN"><?php echo $name;?></p>
                 <p class="role">
                 <?php
@@ -150,7 +148,7 @@
                     ?>
                 </p>
 
-            </div>
+            </a>
             
         </div>
     <div class="listMyCourse">

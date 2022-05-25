@@ -29,7 +29,7 @@
                 }elseif ($bientam=='blog'){ 
                     include("blog.php");
                 }elseif ($bientam=='lienHe'){ 
-                    include("#");
+                    include("lienhe.php");
                 }elseif ($bientam=='find'){ 
                     include("#");
                 

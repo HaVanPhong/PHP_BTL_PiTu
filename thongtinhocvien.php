@@ -52,7 +52,6 @@ $idaccount = $_SESSION['id'];
     padding: 0 10px;
 }
 .course{
-    margin-right: 40px;
     font-size: 20px;
     display: flex;
     padding: 10px;
@@ -126,9 +125,9 @@ i{
                 ?>
             </p>
         </div>
-        <div class="course">
+        <div style="color: #7CC242;" class="course">
             <i class="fa fa-folder-open" aria-hidden="true"></i>
-            <p ><a href="index.php?quanly=myCourse"> Các khóa học của tôi</a></p>
+            <p ><a style="color: #7CC242;" href="index.php?quanly=myCourse"> Các khóa học của tôi</a></p>
         </div>
     </div>
     <div class="sub-header">

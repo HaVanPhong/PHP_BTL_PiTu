@@ -88,7 +88,7 @@ footer {
 }
 
 .iconfooter {
-    font-family: 'Luᴄida Bright';
+    font-family: 'Calibri';
     font-weight: 500;
     line-height: 30px;
     font-size: 50px;
@@ -109,6 +109,7 @@ footer {
 footer {
     padding: 30px 0;
     background-color: #ccc6c6;
+    font-family: Calibri;
 }
 
 

@@ -69,7 +69,7 @@
         width: 80%;
         text-align: center;
         border: 1px solid black;
-        margin: 0px 10% 0px 10%;
+        margin: 40px 10% 0px 10%;
     }
 
     .d1 {

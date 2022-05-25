@@ -110,7 +110,7 @@
             <img  src="./img/CV-1.webp" alt="">
             <div class="card-body">
                 <p class="subtitle">
-                    Học trực tuyến
+                    Học trực tuyế<nav></nav>
                 </p>
             <h5 class="card-title">3 lý do để thêm khóa học trực tuyến vào CV của bạn và cách thực hiện</h5>
             </div>
@@ -173,6 +173,7 @@
     .slide{
         width: 100%;
         height: 100%;
+        cursor: pointer;
     }
     .control{
         width: 50px;
