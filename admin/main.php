@@ -49,11 +49,17 @@
                 }elseif($bientam=='suasv'){
                     include("suasinhvien.php");
                 }elseif ($bientam=='logout'){
-                    $_SESSION['isLogined']= false;
-                    header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");
+                    // unset($_SESSION["isLogined"]);
+                    // // $_SESSION['isLogined']= false;
+                    // header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");
                     
-                }else if ($bientam==''){
-
+                }else if ($bientam=='adminlogout'){
+                    
+                    unset($_SESSION["id"]);
+                    unset($_SESSION["name"]);
+                    unset($_SESSION["role"]);
+                    unset($_SESSION["isLogined"]);
+                    header("Location:http://localhost/PHP_BTL_PiTu/user/index.php?quanly=login");
                 }
                 else { ?>
 

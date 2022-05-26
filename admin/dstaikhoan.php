@@ -1,7 +1,7 @@
 <?php 
     include 'connect.php';
     $sql = "SELECT * FROM account ";
-    $res = mysqli_query($conn, $sql);
+    $res = mysqli_query($connect, $sql);
 
 ?>
 <div class="dssinhvien">

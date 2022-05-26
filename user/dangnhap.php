@@ -69,7 +69,7 @@
                 header("Location:#");
             }else{
                 //admin
-                header("Location:admin/index.php");
+                header("Location: http://localhost/PHP_BTL_PiTu/admin/index.php");
             }
         }else{
 			echo ' <script language="javascript">alert("Tài khoản không đúng, vui lòng nhập lại");</script>';

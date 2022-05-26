@@ -208,7 +208,7 @@
         width: 480px;
         height: 500px;
         margin: 30px 50px 50px 0;
-        margin-top: ;
+        margin-top: 0px;
         border: 1px solid #ccc;
     }
     .card img{

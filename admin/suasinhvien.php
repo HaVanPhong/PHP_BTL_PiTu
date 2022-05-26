@@ -3,7 +3,7 @@
     include 'connect.php';
     $studentID = $_GET['id'];
     $sql_select = "SELECT * FROM `student` WHERE studentID = $studentID";
-    $query_select = mysqli_query($conn, $sql_select);
+    $query_select = mysqli_query($connect, $sql_select);
     $row = mysqli_fetch_assoc($query_select);
     
     if(!empty($_POST['edit_student'])) {
@@ -54,7 +54,7 @@
             `studentMoney` = '$studentMoney'
             WHERE `studentID` = '$studentID'";
                 
-                $query = mysqli_query($conn, $sql);
+                $query = mysqli_query($connect, $sql);
                 
                 if($query){
                     echo ' <script language="javascript">alert("Sửa thông tin sinh viên thành công");</script>';

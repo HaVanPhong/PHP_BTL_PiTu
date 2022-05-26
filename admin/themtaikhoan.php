@@ -21,21 +21,21 @@
             $role = addslashes($data['role']);
             include 'connect.php';
             $sql_check = "SELECT * FROM account WHERE account.useName = '$userName'";
-            $check = mysqli_query($conn, $sql_check);
+            $check = mysqli_query($connect, $sql_check);
             if (mysqli_num_rows($check) > 0)
             {
                 echo '<script language="javascript">alert("Tài khoản đã tồn tại !");</script>';
             }
             else{
                 $sql_them = "INSERT INTO `account`(`useName`, `pass`, `role`) VALUES ('$userName','$pass','$role')";
-                $query = mysqli_query($conn, $sql_them);
+                $query = mysqli_query($connect, $sql_them);
                 if($query){
                     echo ' <script language="javascript">alert("Thêm tài khoản thành công");</script>';
                     }
                 if($role == 1){
                     echo ' <script language="javascript">alert("Thêm thông tin sinh viên");</script>';
                     $sql = "SELECT * FROM account WHERE account.useName='$userName' AND account.pass='$pass'";
-                    $row = mysqli_query($conn,$sql);
+                    $row = mysqli_query($connect,$sql);
                 
                     $count= mysqli_num_rows($row);
             

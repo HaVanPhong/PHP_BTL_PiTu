@@ -63,7 +63,7 @@
                 '$studentMoney',
                 '$accountID')"; 
                 
-                $query = mysqli_query($conn, $sql);
+                $query = mysqli_query($connect, $sql);
                 
                 if($query){
                     echo ' <script language="javascript">alert("Thêm thông tin sinh viên thành công");</script>';

@@ -1,6 +1,6 @@
 <?php 
     $sql = "SELECT * FROM student ";
-    $res = mysqli_query($conn, $sql);
+    $res = mysqli_query($connect, $sql);
     
 
 ?>
