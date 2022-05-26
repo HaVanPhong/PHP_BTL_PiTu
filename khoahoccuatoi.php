@@ -75,6 +75,25 @@
             width: 50%;
             cursor: pointer;
         }
+        .p4 button {
+            
+            text-transform: uppercase;
+            border: none;
+            background: #7cc242;
+            padding: 10px 30px;
+            border-radius: 20px;
+            color: #FFFFFF;
+            font-size: .8em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            width: 50%;
+            cursor: pointer;
+        }
+        .p4 button a{
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
 
         .titleList{
             display: flex;
@@ -175,7 +194,8 @@
             <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
         </div>
         <div class="p4">
-            <input type="button" value="Vào học" name="vaohoc">
+            <!-- <input type="button" value="Vào học" name="vaohoc"> -->
+            <button name="vaohoc"><a href=<?="index.php?quanly=lesson&courseID=".$row_pro['courseID']; ?>>Vào học</a></button>
         </div>
     </div>
     <?php
