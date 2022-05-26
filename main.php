@@ -59,6 +59,9 @@
                 elseif ($bientam=='danhgia'){
                     include("danhgia.php");
 
+                }elseif ($bientam=='lesson'){
+                    
+                    include ("user.baihoc.php");
                 }
                 else{ ?>
 

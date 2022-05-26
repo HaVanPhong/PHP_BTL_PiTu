@@ -65,7 +65,29 @@
         color: #fff;
     }
 </style>
-
+<?php 
+    if (isset($_GET['thamgia'])){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($connect)){
+            include './connect.php';
+        }
+        if (isset($_SESSION['id'])){
+            $sqlGetIdStudent=  "select *from student where accountID=".$_SESSION['id'];
+            $res= mysqli_query($connect, $sqlGetIdStudent) or die("query error submit search");
+            $r= mysqli_fetch_assoc($res);
+            $sql = "INSERT INTO `payment` (`paymentID`, `paymentFee`, `paymentTime`, `mota`, `studentID`, `courseID`) VALUES (NULL, '".$row_pro['courseFee']."', '".date("Y-m-d")."', 'Tham gia khóa học ".$row_pro['courseName']."', '".$r['studentID']."', '".$row_pro['courseID']."')";       
+            mysqli_query($connect, $sql);
+            echo '<script type="text/javascript">alert("Tham gia thành công");</script>'; 
+            echo '<script type="text/javascript">window.location.href="index.php?quanly=myCourse"</script>'; 
+            
+        }else {
+            echo '<script language="javascript">alert("Bạn chưa đăng nhập. Hãy đăng nhập");</script>'; 
+        }
+        // header('location: index.php?quanly=myCourse');
+    }
+?>
 <body>
         <div class="soluoc">
             <div class="soluoc-trai">
@@ -91,7 +113,7 @@
             <div class="soluoc-phai">
                 
                 <img src = "<?php echo $row_pro['img'];?>">
-                <p><a href="" >Tham gia ngay</a></p>
+                <p><a href=<?="http://localhost/PHP_BTL_PiTu/index.php?quanly=chiTiet&id=".$row_pro['courseID']."&thamgia=true"  ?> >Tham gia ngay</a></p>
             </div>
         </div>
 </body>
