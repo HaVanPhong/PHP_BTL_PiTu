@@ -10,7 +10,7 @@
                     $bientam="hocvien";
                 }
                 if($bientam=='hocvien'){
-                    include ("#");
+                    include ("dssinhvien.php");
 
                 }elseif ($bientam=='khoahoc'){
                     include("khoahoc.php");
@@ -40,6 +40,14 @@
                     include("#");               
                 }elseif ($bientam=='taokhoanthu'){ 
                     include("taokhoanthu.php");               
+                }elseif($bientam=='themtk'){
+                    include("themtaikhoan.php");
+                }elseif($bientam=='themsv'){
+                    include("themsinhvien.php");
+                }elseif($bientam=='taikhoan'){
+                    include("dstaikhoan.php");
+                }elseif($bientam=='suasv'){
+                    include("suasinhvien.php");
                 }elseif ($bientam=='logout'){
                     $_SESSION['isLogined']= false;
                     header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");
@@ -48,6 +56,7 @@
 
                 }
                 else { ?>
+
 
                 <?php              
                 }

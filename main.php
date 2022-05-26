@@ -27,9 +27,9 @@
                 </div>
                    <?php
                 }elseif ($bientam=='blog'){ 
-                    include("#");
+                    include("blog.php");
                 }elseif ($bientam=='lienHe'){ 
-                    include("#");
+                    include("lienhe.php");
                 }elseif ($bientam=='find'){ 
                     include("#");
                 
@@ -62,6 +62,9 @@
                 }elseif ($bientam=='lesson'){
                     
                     include ("user.baihoc.php");
+                }
+                elseif($bientam=='suathongtin'){
+                    include("suasinhvien.php");
                 }
                 else{ ?>
 

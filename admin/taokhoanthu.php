@@ -17,12 +17,6 @@
         margin-left: 10%;
         margin-right: 10%;
     }
-    .sophieu{
-        padding: 10px;
-        margin-left: 15%;
-        font-size: 20px;
-
-    }
 
     .phan1{
         
@@ -85,26 +79,15 @@
 </style>
 
 <?php
-//session_start();
-//$_SESSION('idkt')=-1;
-//include 'connect.php';
-
 
     $sql_KH="SELECT * FROM course ORDER BY courseName DESC";
     $query_KH =mysqli_query($connect,$sql_KH);
     $sql_HV="SELECT * FROM student ORDER BY studentName DESC";
-    $query_HV = mysqli_query($connect,$sql_HV);
-    $sql_taomau="INSERT INTO payment (paymentID, paymentFee, paymentTime,mota, studentID, courseID) VALUES (null, '', '', '' , '1', '1')";
-    //$query_taomau=mysqli_query($connect,$sql_taomau);
-    //$last_id = mysqli_insert_id($connect);
+    $query_HV = mysqli_query($connect,$sql_HV);    
     
-
 ?>
 <form action="" method="post">
     <div class="taokhoanthu">
-            <div class="sophieu">
-                <p>Số phiếu: <?php //echo $last_id; ?></p>
-            </div>
             <div class="inputTaoTaiKhoan">
                 <div class="phan1">
                     <div class="label">
@@ -167,8 +150,8 @@
 
 <?php
 
-if(empty($_POST['bttaokhoanthu'])){
-    if(empty($_POST['makhoahoc'])||empty($_POST['makhocvien'])||empty($_POST['nguoinop'])||empty($_POST['mota'])||empty($_POST['tongsotien'])||empty($_POST['ngaythang'])){
+if(isset($_POST['bttaokhoanthu'])){
+    if(empty($_POST['makhoahoc'])||empty($_POST['mahocvien'])||empty($_POST['nguoinop'])||empty($_POST['mota'])||empty($_POST['tongsotien'])||empty($_POST['ngaythang'])){
         echo '<script language="javascript">alert("Nhập đầy đủ thông tin!");</script>';
     }else{
         $mahocvien=$_POST['mahocvien'];
@@ -177,12 +160,11 @@ if(empty($_POST['bttaokhoanthu'])){
         $mota=$_POST['mota'];
         $ngaythang=$_POST['ngaythang'];
         $tongsotien=$_POST['tongsotien'];
-        $sql_up="UPDATE payment SET paymentFee = '$tongsotien', paymentTime='$ngaythang', mota='$mota',$studentID='$mahocvien',$courseID='$makhoahoc'  WHERE paymentID = $last_id;";
-        mysqli_query($connect,$sql_up);
+        $sql_taohoadon="INSERT INTO payment (paymentID, paymentFee, paymentTime,mota, studentID, courseID) VALUES (null, '$tongsotien', '$ngaythang', '$mota' , '$mahocvien', '$makhoahoc')";
+        mysqli_query($connect,$sql_taohoadon);
         echo '<script language="javascript">alert("Thêm thành công!");</script>';
     }
 
         
 }
-//cần sửa sao cho khi thao tác sai không bị load lại trang, load lại trang khi chưa xong cũng không đc reset id phiếu
 ?>

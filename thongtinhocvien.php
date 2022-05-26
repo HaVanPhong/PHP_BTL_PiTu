@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <?php
-$idaccount = $_SESSION['id'];
+    $idaccount = $_SESSION['id'];
     $sql_show ="SELECT * FROM account,student
      WHERE account.accountID = student.accountID 
      AND account.accountID = '$idaccount'";
@@ -52,7 +52,6 @@ $idaccount = $_SESSION['id'];
     padding: 0 10px;
 }
 .course{
-    margin-right: 40px;
     font-size: 20px;
     display: flex;
     padding: 10px;
@@ -126,9 +125,9 @@ i{
                 ?>
             </p>
         </div>
-        <div class="course">
+        <div style="color: #7CC242;" class="course">
             <i class="fa fa-folder-open" aria-hidden="true"></i>
-            <p ><a href="index.php?quanly=myCourse"> Các khóa học của tôi</a></p>
+            <p ><a style="color: #7CC242;" href="index.php?quanly=myCourse"> Các khóa học của tôi</a></p>
         </div>
     </div>
     <div class="sub-header">
@@ -143,74 +142,77 @@ i{
         </div>
     </div>
     <div class="content">   
-        <table class="tb-content">
-            <tr>
-                <td colspan="2" class="font-bold">
-                    <p> Mã học viên</p>
-                    <p><?= $row_pro['studentID']?></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="infor">
-                    <p class="font-bold">Email</p>
-                    <p><?= $row_pro['studentEmail']?></p>
-                </td>
-                <td class="editing">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <p><a href="">Chỉnh sửa</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="infor">
-                    <p class="font-bold">Họ tên</p>
-                    <p><?= $row_pro['studentName']?></p>
-                </td>
-                <td  class="editing">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <p><a href="">Chỉnh sửa</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="infor">
-                    <p class="font-bold">Mật khẩu</p>
-                    <p><?= $row_pro['pass']?></p>
-                </td>
-                <td  class="editing">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <p><a href="">Chỉnh sửa</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="infor">
-                    <p class="font-bold">Số điện thoại</p>
-                    <p><?= $row_pro['studentPhone']?></p>
-                </td>
-                <td  class="editing">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <p><a href="">Chỉnh sửa</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="infor">
-                    <p class="font-bold">Địa chỉ</p>
-                    <p><?= $row_pro['studentAdress']?></p>
-                </td>
-                <td  class="editing">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <p><a href="">Chỉnh sửa</a></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="infor">
-                    <p class="font-bold">Ngày sinh</p>
-                    <p><?=  $row_pro['studentDate_Birth']?></p>
-                </td>
-                <td  class="editing">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <p><a href="">Chỉnh sửa</a></p>
-                </td>
-            </tr>
-        </table>
+        <form action="" method="get">
+            <table class="tb-content">
+                <tr>
+                    <td colspan="2" class="font-bold">
+                        <p> Mã học viên</p>
+                        <p><?= $row_pro['studentID']?></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infor">
+                        <p class="font-bold">Email</p>
+                        <p><?= $row_pro['studentEmail']?></p>
+                    </td>
+                    <td class="editing">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infor">
+                        <p class="font-bold">Họ tên</p>
+                        <p><?= $row_pro['studentName']?></p>
+                    </td>
+                    <td  class="editing">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infor">
+                        <p class="font-bold">Mật khẩu</p>
+                        <p><?= $row_pro['pass']?></p>
+                    </td>
+                    <td  class="editing">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infor">
+                        <p class="font-bold">Số điện thoại</p>
+                        <p><?= $row_pro['studentPhone']?></p>
+                    </td>
+                    <td  class="editing">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infor">
+                        <p class="font-bold">Địa chỉ</p>
+                        <p><?= $row_pro['studentAdress']?></p>
+                    </td>
+                    <td  class="editing">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="infor">
+                        <p class="font-bold">Ngày sinh</p>
+                        <p><?=  $row_pro['studentDate_Birth']?></p>
+                    </td>
+                    <td  class="editing">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <p><a href="index.php?quanly=suathongtin&id=<?= $row_pro['studentID']?>">Chỉnh sửa</a></p>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
     </div>
 </body>
 </html>

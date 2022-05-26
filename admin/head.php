@@ -47,6 +47,7 @@
     }
 
     .headadmin .name {
+        margin-bottom: 50px;
         text-align: center;
         font-weight: 600;
         line-height: 20px;
