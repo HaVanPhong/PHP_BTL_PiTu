@@ -59,6 +59,7 @@
             $_SESSION['id'] = $row_data['accountID'];
             $_SESSION['name']=$row_data['useName'];
             $_SESSION['role']=$row_data['role'];
+            $_SESSION['isLogined']= true;
           
             if($row_data['role']==1){
                 //user
