@@ -7,7 +7,7 @@ if ($_SESSION['isLogined']){
   include 'menu.php';
   include 'main.php';
 }else {
-  header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");
+  header("Location:http://localhost/PHP_BTL_PiTu/user/index.php?quanly=login");
 }
 
 

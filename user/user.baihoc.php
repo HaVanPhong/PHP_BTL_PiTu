@@ -53,7 +53,7 @@
     line-height: 50px;
     align-items: center;
   }
-  .icon h1{
+  .icon1 h1{
     margin-left: 20px;
   }
 
@@ -68,48 +68,48 @@
 
 <body>
   <div class="body">
-  <div class="baihoc">
-    <!-- <div class="heading1">
-      <div class="icon1">
-        <i class="fa-solid fa-chalkboard-user"></i>
-        <h1>Các khóa học của tôi</h1>
-      </div>
-      <div class="hocvien">
-        <i class="fa-solid fa-chalkboard-user"></i>
-        <h3>Thanhtb01</h3>
-        <h3>|Role</h3>
-      </div>
+    <div class="baihoc">
+      <!-- <div class="heading1">
+        <div class="icon1">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <h1>Các khóa học của tôi</h1>
+        </div>
+        <div class="hocvien">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <h3>Thanhtb01</h3>
+          <h3>|Role</h3>
+        </div>
+        
+      </div> -->
+      <?php
+        $idCourse= $_GET['courseID'];
+        if (!isset($connect)){
+          include './connect.php';
+        }
+        $sql= "select *from lesson where courseID=".$idCourse." ";
+        $res= mysqli_query($connect, $sql);
+
+        $sql2= "select *from course where courseID=".$idCourse."";
+        $resCourse= mysqli_query($connect, $sql2);
+        $rowCourse= mysqli_fetch_assoc($resCourse);
+        echo ' <h1>
+          '.$rowCourse['courseName'].'
+        </h1>';
+        while($row= mysqli_fetch_assoc($res)){
+          echo '
+            <ul>
+              <li>
+                <h2 class="tenkhoahoc">'.$row['lessonName'].'</h2>
+                <iframe src="https://youtube.com/embed/'.$row['lessonVideo'].'"></iframe>
+              </li>
+              
+            </ul>
+          ';
+        }
+
+      ?>
       
-    </div> -->
-    <?php
-      $idCourse= $_GET['courseID'];
-      if (!isset($connect)){
-        include './connect.php';
-      }
-      $sql= "select *from lesson where courseID=".$idCourse." ";
-      $res= mysqli_query($connect, $sql);
-
-      $sql2= "select *from course where courseID=".$idCourse."";
-      $resCourse= mysqli_query($connect, $sql2);
-      $rowCourse= mysqli_fetch_assoc($resCourse);
-      echo ' <h1>
-        '.$rowCourse['courseName'].'
-      </h1>';
-      while($row= mysqli_fetch_assoc($res)){
-        echo '
-          <ul>
-            <li>
-              <h2 class="tenkhoahoc">'.$row['lessonName'].'</h2>
-              <iframe src="https://youtube.com/embed/'.$row['lessonVideo'].'"></iframe>
-            </li>
-            
-          </ul>
-        ';
-      }
-
-    ?>
-    
-  </div>
+    </div>
   </div>
   
 </body>
