@@ -11,7 +11,7 @@
                     $bientam="hocvien";
                 }
                 if($bientam=='hocvien'){
-                    include ("#");
+                    include ("dssinhvien.php");
 
                 }elseif ($bientam=='khoahoc'){
                     include("#");
@@ -23,7 +23,17 @@
                     include("#");               
                 }elseif ($bientam=='taokhoanthu'){ 
                     include("taokhoanthu.php");               
-                }else{ ?>
+                }elseif($bientam=='themtk'){
+                    include("themtaikhoan.php");
+                }elseif($bientam=='themsv'){
+                    include("themsinhvien.php");
+                }elseif($bientam=='taikhoan'){
+                    include("dstaikhoan.php");
+                }elseif($bientam=='suasv'){
+                    include("suasinhvien.php");
+                }
+                
+                else{ ?>
 
                 <?php              
                 }

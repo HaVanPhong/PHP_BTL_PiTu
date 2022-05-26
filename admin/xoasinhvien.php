@@ -1,12 +1,9 @@
 <?php
     include 'connect.php';
-    // require_once 'students.php';
-    $id_account = $_POST['idAccount'];
-    $id = isset($_POST['id']) ? (int)$_POST['id'] : '';
     
+    $id = isset($_POST['id']) ? (int)$_POST['id'] : '';
+    $id_account = $_POST['idAccount'];
     if ($id){
-        // delete_student($id);
-        // delete_account($_POST['idAccount']);
 
         // delete student
         $sql_delete = "DELETE FROM student WHERE studentID = $id";
@@ -17,5 +14,5 @@
     }
     
     // Trở về trang danh sách
-        header("location: dssinhvien.php");
+        header("location: index.php?quanly=hocvien");
 ?>

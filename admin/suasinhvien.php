@@ -1,25 +1,21 @@
 
 <?php
-    // require 'students.php';
-    
+    include 'connect.php';
     $studentID = $_GET['id'];
-    $sql_select = "SELECT * FROM `student`
-    WHERE studentID = $studentID";
-    $query_select = mysqli_query($connect, $sql_select);
+    $sql_select = "SELECT * FROM `student` WHERE studentID = $studentID";
+    $query_select = mysqli_query($conn, $sql_select);
     $row = mysqli_fetch_assoc($query_select);
-    $accountID = $row['accountID'];
-    $sql_select_acc = "SELECT * FROM `account`
-    WHERE accountID = $accountID";
-    $query_acc = mysqli_query($connect, $sql_select_acc);
-    $row_acc = mysqli_fetch_assoc($query_acc);
+    
     if(!empty($_POST['edit_student'])) {
         //Lay data
+
         $data['studentName'] = isset($_POST['name']) ? $_POST['name'] : '';
         $data['studentPhone'] = isset($_POST['phone']) ? $_POST['phone'] : '';
         $data['studentEmail'] = isset($_POST['email']) ? $_POST['email'] : '';
         $data['studentAdress'] = isset($_POST['address']) ? $_POST['address'] : '';
         $data['studentDate_Birth'] = isset($_POST['date_birth']) ? $_POST['date_birth'] : '';
-        $data['pass'] = isset($_POST['pass']) ? $_POST['pass'] : '';
+        $data['studentMoney'] = isset($_POST['amount']) ? $_POST['amount'] : '';
+        
         $errors = array();
         if(empty($data['studentName'])){
             $errors['studentName'] = '<p class="errStyle" >*Chưa nhập tên sinh viên</p>';
@@ -36,40 +32,43 @@
         if(empty($data['studentDate_Birth'])){
             $errors['studentDate_Birth'] = '<p class="errStyle" >*Chưa nhập ngày sinh</p>';
         }
-        if(empty($data['pass'])){
-            $errors['pass'] = '<p class="errStyle" >*Chưa nhập mật khẩu</p>';
+        if(empty($data['studentMoney'])){
+            $errors['studentMoney'] = '<p class="errStyle">*Chưa nhập số dư tài khoản</p>';
         }
-        if(!count($errors)){
+        
+        if(!$errors){
+            
             $studentName = ($data['studentName']);
             $studentPhone = ($data['studentPhone']);
             $studentEmail = ($data['studentEmail']);
             $studentAdress = ($data['studentAdress']);
             $studentDate_Birth = ($data['studentDate_Birth']);
-            $pass = ($data['pass']);
-            $sql = "UPDATE  student,account  SET 
-            studentName = '$studentName', 
-            studentPhone = '$studentPhone',
-            studentAdress = '$studentAdress', 
-            studentEmail = '$studentEmail',
-            studentDate_Birth = '$studentDate_Birth',
-            pass = '$pass'
-            WHERE studentID = '$studentID' AND student.accountID = account.accountID" ;
-                $query = mysqli_query($connect, $sql);
+            $studentMoney = ($data['studentMoney']);
+            
+            $sql = "UPDATE  `student`  SET 
+            `studentName` = '$studentName', 
+            `studentPhone` = '$studentPhone',
+            `studentAdress` = '$studentAdress', 
+            `studentEmail` = '$studentEmail', 
+            `studentDate_Birth` = '$studentDate_Birth',
+            `studentMoney` = '$studentMoney'
+            WHERE `studentID` = '$studentID'";
+                
+                $query = mysqli_query($conn, $sql);
                 
                 if($query){
-                    echo '<script language="javascript">alert("Sửa thông tin sinh viên thành công");</script>';
+                    echo ' <script language="javascript">alert("Sửa thông tin sinh viên thành công");</script>';
                     }
                 // Trở về trang danh sách
-                echo '<script language="javascript">window.location="index.php?quanly=thongtin"</script>';
+                
+                echo ' <script language="javascript">window.location="index.php?quanly=hocvien"</script> ';
         }
     }
     if(!empty($_POST['huy'])){
-        echo ' <script language="javascript">window.location="index.php?quanly=thongtin"</script> ';
+        echo ' <script language="javascript">window.location="index.php?quanly=hocvien"</script> ';
     }
 ?>
-<div class="form-edit">
-    <h2>Sửa thông tin cá nhân</h2>
-    <hr>
+<div>
     <form action="" method="post">
         <table align="center" class="sua">
             <tr>
@@ -121,16 +120,16 @@
                     <?php if (!empty($errors['studentDate_Birth'])) echo $errors['studentDate_Birth']; ?>
                 </td>
                 <td>
-                    <label for="pass">Mật khẩu</label>
+                    <label for="amount">Số dư tài khoản</label>
                 </td>
                 <td>
-                    <input type="text" name="pass" value="<?php echo $row_acc['pass']; ?>">
-                    <?php if (!empty($errors['pass'])) echo $errors['pass']; ?>
-                </td>
-                  
+                    <input type="text" name="amount" value="<?php echo $row['studentMoney']; ?>">
+                    <?php if (!empty($errors['studentMoney'])) echo $errors['studentMoney']; ?>
+
+                </td>   
             </tr>
             <tr>
-                <td><input type="submit"  value="Sửa thông tin" name="edit_student"></td>
+                <td><input type="submit" value="Sửa học viên" name="edit_student"></td>
                 <td><input type="submit" value="Hủy bỏ" style="background-color: red;" name="huy"></td>
             </tr>
         </table>
@@ -138,22 +137,10 @@
 </div>
 
 <style>
-    
-    .form-edit hr{
-        width: 1200px;
-        background: #737373;
-        border: none;
-    }
-    .form-edit h2{
-        margin:30px 15%;
-        font-size: 35px;
-        color: #737373;
-        font-family: Calibri;
-    }
     table{
         color: #707070;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin-left: 12%;
+        
     }
     .sua td{
         position: relative;
@@ -162,7 +149,7 @@
     }
     .errStyle{
         color: red; 
-        font-size: 11px; 
+        font-size: 12px; 
         font-style: italic;
     }
     .sua p{
