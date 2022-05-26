@@ -1,3 +1,4 @@
+
 <style>
 
     *{
@@ -61,7 +62,7 @@
             PITU
         </div>
         <div class="admin">
-            Xin chào Admin! <a href="logout.php"><i>Đăng xuất</i></a>
+            Admin: <?php echo $_SESSION['name']?> <a href="index.php?quanly=logout"><i>Đăng xuất</i></a>
         </div>
 
     </div>
