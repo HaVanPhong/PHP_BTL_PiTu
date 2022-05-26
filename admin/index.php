@@ -1,9 +1,15 @@
 <?php
 session_start();
 
-include 'connect.php';
-include 'head.php';
-include 'menu.php';
-include 'main.php';
+if ($_SESSION['isLogined']){
+  include 'connect.php';
+  include 'head.php';
+  include 'menu.php';
+  include 'main.php';
+}else {
+  header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");
+}
+
+
 
 ?>

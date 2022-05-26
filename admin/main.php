@@ -24,6 +24,7 @@
                 }elseif ($bientam=='taokhoanthu'){ 
                     include("taokhoanthu.php");               
                 }elseif ($bientam=='logout'){
+                    $_SESSION['isLogined']= false;
                     header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");
                     
                 }

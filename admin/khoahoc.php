@@ -27,6 +27,7 @@
     flex-wrap: wrap;
   }
   .khoahoc ul li{
+    cursor: pointer;
     width: 33%;
     margin: 20px;
     padding: 50px;
@@ -49,6 +50,9 @@
     background-color: #7CC242;
     color: white;
   }
+  .makhoahoc{
+    display: flex;
+  }
  /* chi tiết khóa học */
   .suavathem{
     display: flex;
@@ -60,10 +64,14 @@
     width: 80%;
     margin: 0 auto;
   }
+  .chitietkhoahoc .imgDisplay{
+    width: 300px;
+  }
   .themKhoaHoc{
     display: none;
     width: 80%;
     margin: 0 auto;
+    
   }
   .chitietkhoahoc .thongtin{
     text-align: center;
@@ -76,6 +84,8 @@
     margin: 0 auto;
 
   }
+
+  /* -------- */
   .themKhoaHoc table{
     width: 80%;
     margin: 0 auto;
@@ -119,31 +129,28 @@
   }
   
 /* thêm khóa học   */
-
-
-
 </style>
+
+<?php 
+  include './connect.php';
+
+?>
 <body>
   <div class="khoahoc" id="khoahoc">
     <ul>
-      <li onclick="clickKhoaHoc()">
-          Lập trình front-end cơ bản
-      </li>
-      <li onclick="clickKhoaHoc()">
-          Lập trình front-end cơ bản
-      </li>
-      <li onclick="clickKhoaHoc()">
-          Lập trình front-end cơ bản
-      </li>
-      <li onclick="clickKhoaHoc()">
-          Lập trình front-end cơ bản
-      </li>
-      <li onclick="clickKhoaHoc()">
-          Lập trình front-end cơ bản
-      </li>
-      <li onclick="clickKhoaHoc()">
-          Lập trình front-end cơ bản
-      </li>
+      <?php 
+        $sql= "select * from course";
+        $result= mysqli_query($connect, $sql) or die("query error submit search");
+        while ($row= mysqli_fetch_assoc($result)){
+          $line= "'".$row['courseID'].";".$row['courseName'].";".$row['courseDetail'].";".$row['courseFee'].";".$row['img']."'";
+          echo '
+            <li onclick="clickKhoaHoc('.$line.')">
+              '.$row['courseName'].'
+            </li>
+          ';
+        }
+      ?>
+      
     </ul>
     <button class="btnThemKhoaHoc" onclick="themKhoaHoc()">Thêm khóa học</button>
   </div>
@@ -151,84 +158,130 @@
   <div class="suavathem">
     <div class="chitietkhoahoc" id="chiTietKhoaHoc">
       <h3 class="thongtin">Thông tin khóa học</h3>
-      <h3 class="makhoahoc">Mã khóa học: LT02</h3>
-      <table>
-        <tr>
-          <td>
-            Tên khóa học:
-            <input type="text" name="" id="" value="Lập trình front-end cơ bản">
-          </td>
-          <td>
-            Mô tả: 
-            <input type="text" name="" id="" value="Học các ngôn ngữ cơ bản như HTML, CSS, JS...">
-          </td>
-        </tr>
-        <tr>
-          <td style="display: flex;">
-            <p style="margin-right: 20px;">Ảnh:</p>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2cEC3G_7nWjRn6xCjiqiUoJaPuPM2Gnm5Kg&usqp=CAU" alt="">
+      <h3 class="makhoahoc">Mã khóa học: <p id="idCourse"></p></h3>
+      <form action="khoahoc.php" method="POST">
+        <table>
+          <tr>
+            <td>
+              Tên khóa học:
+              <input type="text" name="" id="courseName">
+            </td>
+            <td>
+              Mô tả: 
+              <input type="text" name="" id="courseDetail" >
+            </td>
+          </tr>
+          <tr>
+            <td style="display: flex;">
+              <p style="margin-right: 20px;">Ảnh:</p>
+              <img src="" id="img" alt="" class="imgDisplay">
+              
+              <input type="file" name="" id="fileImg">
+            </td>
+            <td>
+              Giá:
+              <input type="text" name="courseFee" id="courseFee" >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="btnXong" type="submit"><a href="">Cập nhật</a></button>
+              <button class="btnXong"><a href="">Back</a></button>
+            </td>
             
-            <input type="file" name="" id="">
-          </td>
-          <td>
-            Giá:
-            <input type="text" name="" id="" value="3.499.999đ">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <button class="btnXong"><a href="">Xong</a></button>
-            <button class="btnXong"><a href="">Back</a></button>
-          </td>
-          
-          <td>
-            <a class="btnXoaKhoaHoc" href="">Xóa khóa học</a>
-          </td>
-        </tr>
-      </table>
+            <td>
+              <a class="btnXoaKhoaHoc" href="">Xóa khóa học</a>
+            </td>
+          </tr>
+        </table>
+      </form>
     </div>
   
+    <?php 
+      include '../uploadfile.php';
+      
+      if (isset($_POST['themkhoahoc'])){
+        $img_link= upload($_FILES['img']);
+        $tenKhoaHoc= $_POST['tenkhoahoc'];
+        $mota= $_POST['mota'];
+        $gia= $_POST['gia'];
+        $video_id= $_POST['video_id'];
+        $categoryID= $_POST['category_id'];
+        $teacherID= $_POST['teacher_id'];
+
+        $sql= "INSERT INTO `course` (`courseID`, `courseName`, `courseDetail`, `courseFee`, `img`, `videoDemo`, `categoryID`, `teacherID`) 
+          VALUES (NULL, '".$tenKhoaHoc."', '".$mota."', '".$gia."', '".$img_link."', '".$video_id."', '".$categoryID."', '".$teacherID."')";
+        mysqli_query($connect, $sql) or die("query error submit");
+      }
+
+    ?>
     <div class="themKhoaHoc" id="themKhoaHoc">
-      <table>
-        <tr>
-          <td>
-            <p>Tên khóa học:</p>
-            <input type="text" name="" id="" >
-          </td>
-          <td>
-            <p>Mô tả: </p>
-            <input type="text" name="" id="" >
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Ảnh:</p>
-            <input type="file" name="" id="">
-          </td>
-          <td>
-            <p>Giá:</p>
-            <input type="text" name="" id="" >
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <button class="btnXong"><a href="">Thêm khóa học</a></button>
-          </td>
-          
-          <td>
-            <button class="btnXong"><a href="">Back</a></button>
-          </td>
-          
-        </tr>
-      </table>
+      <form action="khoahoc.php" method="POST" enctype="multipart/form-data">
+        <table>
+          <tr>
+            <td>
+              <p>Tên khóa học:</p>
+              <input type="text" name="tenkhoahoc" id="" >
+            </td>
+            <td>
+              <p>Mô tả: </p>
+              <input type="text" name="mota" id="" >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Ảnh:</p>
+              <input type="file" name="img" id="">
+            </td>
+            <td>
+              <p>Giá:</p>
+              <input type="number" name="gia" id="" >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              
+            </td>
+            <td>
+              <p>Video giới thiệu:</p>
+              <input type="text" name="video_id" id="" >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Mã danh mục:</p>
+              <input type="text" name="category_id" id="" >
+            </td>
+            <td>
+              <p>Mã giáo viên giảng dạy: </p>
+              <input type="text" name="teacher_id" id="" >
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="submit" name="themkhoahoc" class="btnXong">Thêm khóa học</button>
+            </td>
+            
+            <td>
+              <button class="btnXong"><a href="">Back</a></button>
+            </td>
+            
+          </tr>
+        </table>
+      </form>
     </div>
   </div>
 </body>
 <script>
-  function clickKhoaHoc(){
+  function clickKhoaHoc(line){
+    let course= line.split(";");
     document.getElementById('khoahoc').style.display="none";
     document.getElementById('chiTietKhoaHoc').style.display="block";
-
+    document.getElementById("idCourse").innerHTML= course[0];
+    document.getElementById("courseName").value= course[1];
+    document.getElementById("courseDetail").value= course[2];
+    document.getElementById("courseFee").value= course[3];
+    document.getElementById("img").src= course[4];
   }
   function themKhoaHoc(){
     document.getElementById('khoahoc').style.display="none";
