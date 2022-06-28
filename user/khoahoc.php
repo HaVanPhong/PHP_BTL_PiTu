@@ -1,4 +1,10 @@
+<style>
+    .tenTheLoai{
+        text-align: left;
+        text-indent: 40px;
+    }
 
+</style>
 <?php
     
 

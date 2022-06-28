@@ -1,6 +1,7 @@
 <?php 
   include './connect.php';
-  include '../uploadfile.php';
+  include '../user/uploadfile.php';
+  
   
   if (isset($_POST['themkhoahoc'])){
     $img_link= upload($_FILES['img']);
