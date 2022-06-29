@@ -1,5 +1,34 @@
+<?php
+    if(!isset($connect)){
+        include 'connect.php';
+    }
+    $sql = "SELECT * FROM comment,student,course
+    where comment.studentID = student.studentID
+    AND comment.courseID = course.courseID LIMIT 6";
+    $query = mysqli_query($connect,$sql);
+    
 
-<table class="tb-comment">
+    
+?>
+<div class="main" style="display: flex; align-items: center; justify-content: center;">
+    <?php while($row = mysqli_fetch_array($query)){?>
+        <div class="comment" >
+            <div class="nguoidanhgia">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <p><?=$row['studentName']?></p>
+            </div>
+            <div class="noidung">
+                <p class="tencmt"><?=$row['commentTitle']?></p>
+                <p class="chitiet"><?=$row['commentContent']?></p>
+                
+                <p class="nameCourse"><?=$row['courseName']?></p>
+                <p class="thoigian"><?=$row['commentTime']?></p>
+            </div>
+        </div>
+    <?php };?>
+</div>
+<!-- <table class="tb-comment">
+    <div></div>
         <tr>
             <td class="comment">
                 <div class="nguoidanhgia">
@@ -77,15 +106,16 @@
                 </div>
             </td>
         </tr>
-    </table>
+    </table> -->
     <style>
-        .tb-comment{
+        /* .tb-comment{
         margin: 30px;
         color: #707070;
-    }
+    } */
     
     .comment{
         padding-left: 50px;
+        
     }
     .noidung{
         border-right: solid 1px #707070;

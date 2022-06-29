@@ -37,6 +37,32 @@
     .menuadmin div:hover{
             border-bottom: none;
         }
+    .menuadmin .khac{
+            position: relative;
+        }
+    .menuadmin .listKhac{
+        display: none;
+        position: absolute;
+        width: 295px;
+        top: 57px;
+        left: -2px;
+        /* padding: 10px; */
+        background-color: #fff;
+        /* border: 2px solid #696969; */
+    }
+    .menuadmin .khac:hover .listKhac{
+        display: block;
+    }
+    .listKhac a{
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .listKhac a:hover{
+        color: #7CC242;
+        font-weight: 600;
+        /* border: 2px solid #7CC242   ; */
+
+    }
 </style>
 
 
@@ -53,7 +79,12 @@
     <div>
         <a href="index.php?quanly=thongkebaocao">Thống kê báo cáo</a>
     </div>
-    <div>
-        <a href="index.php?quanly=khac">Khác</a>
+    <div class="khac">
+        <a href="index.php?quanly=khac" >Khác
+            <div class="listKhac">
+                <a href="index.php?quanly=qlnap">Quản lý nạp tiền</a></>
+                <a href="index.php?quanly=qlsms">Quản lý tin nhắn</a></li>
+            </div>
+        </a>
     </div>
 </div>

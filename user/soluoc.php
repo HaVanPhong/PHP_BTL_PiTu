@@ -113,7 +113,7 @@
             <div class="soluoc-phai">
                 
                 <img src = "<?php echo $row_pro['img'];?>">
-                <p><a href=<?="http://localhost/PHP_BTL_PiTu/index.php?quanly=chiTiet&id=".$row_pro['courseID']."&thamgia=true"  ?> >Tham gia ngay</a></p>
+                <p><a href=<?="http://localhost/PHP_BTL_PiTu/user/index.php?quanly=chiTiet&id=".$row_pro['courseID']."&thamgia=true"  ?> >Tham gia ngay</a></p>
             </div>
         </div>
 </body>

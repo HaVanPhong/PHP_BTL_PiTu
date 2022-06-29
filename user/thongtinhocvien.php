@@ -138,7 +138,7 @@ i{
         <div class="text2">
             <p>Số dư TK</p>
             <p><?= $row_pro['studentMoney']?> đ</p>
-            <p><a href="" class="green-italic">Nạp tiền</a></p>
+            <p><a href="index.php?quanly=naptien" class="green-italic">Nạp tiền</a></p>
         </div>
     </div>
     <div class="content">   

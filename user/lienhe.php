@@ -1,14 +1,20 @@
 <?php
     $idAccount = $_SESSION['id'] ;
-    $sql = "SELECT * FROM account
-    WHERE `accountID` = $idAccount";
+    $sql = "SELECT * FROM account,student,payment,course
+    WHERE account.accountID = student.accountID
+    AND student.studentID = payment.studentID
+    AND payment.courseID = course.courseID
+    AND account.accountID = $idAccount";
     $query = mysqli_query($connect,$sql);
     $row = mysqli_fetch_array($query);
-    if(isset($_SESSION['id']))
+    
 ?>
 <div class="contact">
     <hr>
     <h2>Chúng tôi có thể giúp gì cho bạn, <?php echo $row['useName'];?></h2>
+    <h3 style="color: #737373"><?php if(!isset($_SESSION['id'])){
+        echo '<br>Hãy <a href = "index.php?quanly=login" style="color: #7CC242">Đăng nhập</a>  để gửi phản hồi đến chúng tôi';
+    }?></h3>
     <p class="title">Chủ đề</p>
     <select id="form-select">
         <option value>Chọn một danh mục</option>
@@ -25,17 +31,32 @@
     <select id="form-select">
         <option value>----------------------</option>
         <option value="1">Tính năng này không dành riêng cho 1 khóa học</option>
-        <option value="2">Lập trình cho mọi người (Bắt đầu với Python)</option>
-        <option value="3">Lập trình C++: Kỹ năng cơ bản</option>
+        <?php
+            while($row = mysqli_fetch_array($query)){           
+        ?>
+        <option value=""><?php echo $row['courseName'];?></option>
+        <?php };?>
+        <!-- <option value="3">Lập trình C++: Kỹ năng cơ bản</option>
         <option value="4">Giới thiệu về lập trình Java cho người mới bắt đầu</option>
         <option value="5">Giới thiệu về JavaScript</option>
-        <option value="6">Cơ bản về khoa học máy tính</option>
+        <option value="<">Cơ bản về khoa học máy tính</option> -->
     </select>
     <p class="title">Thông tin chi tiết</p>
     <p class="note">Nhanh chóng và hiệu quả nhất mà chúng tôi có thể phản hồi!</p>
     <textarea  id="message"  cols="30" rows="10"></textarea>
+    
     <a href="" >
-        <div class="btn-create-inner">Tạo một phiếu hỗ trợ</div>
+        <?php
+            if(isset($_SESSION['id'])){
+                echo'
+                <div class="btn-create-inner">Tạo một phiếu hỗ trợ</div>';
+            }
+            else{
+                echo '<div class="btn-create-inner" style="background-color: #737373; opacity: 0.8;
+                ">Tạo một phiếu hỗ trợ</div>';
+            }
+        ?>
+        
     </a>
 </div>
 <style>

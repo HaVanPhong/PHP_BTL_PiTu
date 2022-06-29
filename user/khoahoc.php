@@ -6,7 +6,13 @@
     $query_show =mysqli_query($connect,$sql_show);
    
 ?>
-
+<style>
+    .tenTheLoai{
+        text-align: left;
+        text-indent: 40px;
+    }
+    
+</style>
 <div class="list_category" align="left" width="100%">
 <ul class="category_list">
     <div class="title_category">
@@ -28,6 +34,3 @@
 
 </div>
 
-<style>
-
-</style>

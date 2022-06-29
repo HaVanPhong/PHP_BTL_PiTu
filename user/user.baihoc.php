@@ -64,6 +64,14 @@
   .hocvien i{
     margin-right: 10px;
   }
+  .title{
+    color: #696969; 
+    font-family: Calibri;     
+    margin-left: 111px;
+    margin-top: 32px;
+    margin-bottom: 20px;
+    font-size: 40px;" 
+  }
 </style>
 
 <body>
@@ -92,7 +100,7 @@
         $sql2= "select *from course where courseID=".$idCourse."";
         $resCourse= mysqli_query($connect, $sql2);
         $rowCourse= mysqli_fetch_assoc($resCourse);
-        echo ' <h1>
+        echo ' <h1 class="title">
           '.$rowCourse['courseName'].'
         </h1>';
         while($row= mysqli_fetch_assoc($res)){
@@ -102,15 +110,17 @@
                 <h2 class="tenkhoahoc">'.$row['lessonName'].'</h2>
                 <iframe src="https://youtube.com/embed/'.$row['lessonVideo'].'"></iframe>
               </li>
-              
             </ul>
           ';
         }
-
+        
       ?>
       
     </div>
   </div>
-  
+<?php
+  echo '<h1 class="title">Các khóa học liên quan</h1>';
+  include 'course_category.php';
+?>
 </body>
 </html>

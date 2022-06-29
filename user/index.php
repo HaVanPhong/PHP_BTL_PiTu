@@ -24,6 +24,7 @@ session_start();
         include 'menu.php';
         include 'main.php';
         include 'iconlienhe.php';
+        include 'chatbox.php';
         include 'footer.php';
     ?>
 

@@ -48,7 +48,10 @@
                     include("dstaikhoan.php");
                 }elseif($bientam=='suasv'){
                     include("suasinhvien.php");
-                }elseif ($bientam=='logout'){
+                }elseif($bientam=='qlnap'){
+                    include("quanlynaptien.php");
+                }
+                elseif ($bientam=='logout'){
                     // unset($_SESSION["isLogined"]);
                     // // $_SESSION['isLogined']= false;
                     // header("Location:http://localhost/PHP_BTL_PiTu/index.php?quanly=login");

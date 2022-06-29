@@ -110,7 +110,7 @@
             <img  src="./img/CV-1.webp" alt="">
             <div class="card-body">
                 <p class="subtitle">
-                    Học trực tuyế<nav></nav>
+                    Học trực tuyến<nav></nav>
                 </p>
             <h5 class="card-title">3 lý do để thêm khóa học trực tuyến vào CV của bạn và cách thực hiện</h5>
             </div>
@@ -203,6 +203,7 @@
         font-family: Calibri;
         color: #696969;
         font-size: 30px;
+        margin-bottom: 20px;
     }
     .main-post .card{
         width: 480px;

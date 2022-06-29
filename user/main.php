@@ -66,6 +66,9 @@
                 elseif($bientam=='suathongtin'){
                     include("suasinhvien.php");
                 }
+                elseif($bientam=='naptien'){
+                    include("naptien.php");
+                }
                 else{ ?>
 
 
