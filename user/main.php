@@ -35,7 +35,10 @@
                 
                 }elseif ($bientam=='myCourse'){ 
                     include("khoahoccuatoi.php");
-                    
+
+                }elseif ($bientam=='teacherCourse'){ 
+                    include("khoahoccuagiaovien.php"); 
+
                 }elseif ($bientam=='thongtin'){ 
                     include("thongtinhocvien.php");
 
@@ -68,6 +71,15 @@
                 }
                 elseif($bientam=='naptien'){
                     include("naptien.php");
+                }
+                elseif($bientam=='themKH'){
+                    include("giaovienthemkhoahoc.php");
+                }
+                elseif($bientam=='themBaiHoc'){
+                    include("thembaihoc.php");
+                }
+                elseif($bientam=='themTietHoc'){
+                    include("tiethoc.php");
                 }
                 else{ ?>
 

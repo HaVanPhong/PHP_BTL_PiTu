@@ -5,5 +5,5 @@ unset($_SESSION["role"]);
 unset($_SESSION["isLogined"]);
 
 
-header("Location:index.php?quanly=''");
+//header("Location:user/index.php");
 ?>

@@ -113,7 +113,16 @@
             <div class="soluoc-phai">
                 
                 <img src = "<?php echo $row_pro['img'];?>">
+
+                <?php
+                    if($_SESSION['role']==1){
+                ?>
                 <p><a href=<?="http://localhost/PHP_BTL_PiTu/user/index.php?quanly=chiTiet&id=".$row_pro['courseID']."&thamgia=true"  ?> >Tham gia ngay</a></p>
+            
+                <?php
+                    }
+                ?>
+
             </div>
         </div>
 </body>
