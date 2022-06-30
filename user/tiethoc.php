@@ -14,12 +14,14 @@
              VALUES (NULL,'".$tenKhoaHoc."', '". $img_link."', '".$video_id."', '".$idKhoaHoc."')";
     
     if(mysqli_query($connect, $sql)==true){
-      echo '<script language="javascript">alert("Thêm bài học mới thành công");</script>';
-      echo '<script type="text/javascript">window.location.href="index.php?quanly=themBaiHoc&id=<?php echo $idKhoaHoc;?>"</script>'; 
-      
+      echo '<script language="javascript">alert("Thêm bài học mới thành công");</script>'; 
+      header("Location:http://localhost/btlNO2/PHP_BTL_PiTu/user/index.php?quanly=themBaiHoc&id=$idKhoaHoc");
+
+
     }else{
       echo '<script language="javascript">alert("Có lỗi không thể thêm bài học");</script>';
-      echo '<script type="text/javascript">window.location.href="index.php?quanly=themBaiHoc&id=<?php echo $idKhoaHoc;?>"</script>'; 
+      header("Location:http://localhost/btlNO2/PHP_BTL_PiTu/user/index.php?quanly=themBaiHoc&id=$idKhoaHoc");
+
     }
    
     
