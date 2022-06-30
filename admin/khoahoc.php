@@ -7,17 +7,24 @@
   <title>Document</title>
 </head>
 <style>
-  *{
-    margin: 0;
-    padding: 0;
-
-  }
+    *{
+        padding: 0;
+        margin: 0; 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+    }
   body{
     width: 100%;
   }
   .khoahoc {
     width: 80%;
     margin: 0 auto;
+  }
+  .khoahoc .head{
+    text-align: center;
+    font-size: 30px;
+    margin: 30px;
+    color: #737373;
   }
   .khoahoc ul {
     width: 100%;
@@ -32,11 +39,14 @@
     margin: 20px;
     padding: 50px;
     text-align: center;
-    border: solid 1px black;
+    border: solid 1px #7CC242;
+    border-radius: 20px;
   }
   .khoahoc ul li:hover{
     background-color: #7CC242;
     color: white;
+    border: solid 1px #fff;
+
   }
   .khoahoc ul li:hover a{
     cursor: pointer;
@@ -44,7 +54,7 @@
   }
   .khoahoc ul li{
     text-decoration: none;
-    font-weight: 900;
+    font-weight: 600;
   }
   .khoahoc ul li a{
     text-decoration: none;
@@ -52,6 +62,7 @@
     font-size: larger;
   }
   .btnThemKhoaHoc{
+    border: none;
     cursor: pointer;
     border-radius: 16px;
     float: right;
@@ -139,7 +150,12 @@
   .btnThemKhoaHoc a{
     text-decoration: none; 
     color: white;
-    font-weight: 900;
+    font-size: 20px;
+    padding: 0 20px;
+    font-weight: 600;
+  }
+  .btnThemKhoaHoc:hover{
+    opacity: 0.7;
   }
   
 /* thêm khóa học   */
@@ -151,6 +167,7 @@
 ?>
 <body>
   <div class="khoahoc" id="khoahoc">
+    <h2 class="head">Danh sách các khóa học</h2>
     <ul>
       <?php 
         $sql= "select * from course";

@@ -1,14 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    
-    <title>Document</title>
-</head>
 <?php
     $idaccount = $_SESSION['id'];
     $sql_show ="SELECT * FROM account,student
@@ -18,11 +8,10 @@
     $row_pro = mysqli_fetch_array($query_show);
 ?>
 <style>
-*{
+.thongtinhocvien{
     font-family: "Segoe UI", "Calibri", sans-serif;
     padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    margin: 20px;
 }
 .font-bold{
     font-weight: bold;
@@ -106,7 +95,7 @@ i{
     width: 600px;
 }
 </style>
-<body>
+<div class="thongtinhocvien">
     <div class="header">
         <div class="infor">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -214,6 +203,4 @@ i{
         </form>
         
     </div>
-</body>
-</html>
-
+</div>

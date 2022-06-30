@@ -2,6 +2,7 @@
   .chitietkhoahoc{
     width: 80%;
     margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   .chitietkhoahoc .imgDisplay{
     width: 300px;
@@ -12,8 +13,18 @@
     margin: 0 auto;
     
   }
+  .chitietkhoahoc .title{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .chitietkhoahoc input[type="file"]{
+    font-size: 18px;
+  }
   .chitietkhoahoc .thongtin{
     text-align: center;
+    margin: 50px 0;
+    color: #7CC242;
+    font-size: 30px;
   }
   .themKhoaHoc .thongtin{
     text-align: center;
@@ -52,24 +63,26 @@
   }
 
   .btnXong{
-    padding: 10px;
+    padding:  10px 25px;
     background-color: #7CC242;
     border-radius: 16px;
+    border: none;
+  }
+  .btnXong:hover, .btnXoaKhoaHoc:hover{
+    opacity: 0.7;
+  }
 
-  }
-  .btnXong a{
-    text-decoration: none;
-    color: white;
-    font-weight: 900;
-  }
   .btnXoaKhoaHoc{
-    color: red;
-    font-weight: 900;
+    color: #fff;
+    background-color: red;
+    padding: 10px;
+    border-radius: 16px;
   }
-  .btnThemKhoaHoc a{
+  .chitietkhoahoc a{
     text-decoration: none; 
     color: white;
-    font-weight: 900;
+    font-weight: 600;
+    font-size: 18px;
   }
 
   /* them css  */
@@ -90,31 +103,29 @@
   <form action="khoahoc.php" method="POST">
     <table>
       <tr>
-        <td>
-          Tên khóa học:
+        <td><p class="title">Tên khóa học:</p>
           <input type="text" name="" id="courseName" value='<?php echo $row['courseName']?>'>
         </td>
         <td>
-          Mô tả: 
+        <p class="title">Mô tả: </p>
           <input type="text" name="" id="courseDetail" value='<?php echo $row['courseDetail']?>' >
         </td>
       </tr>
       <tr>
-        <td style="display: flex;">
-          <p style="margin-right: 20px;">Ảnh:</p>
+        <td style="width:1000px">
+          <p style="margin-right: 20px;" class="title">Ảnh:</p>
           <img src=<?php echo $row['img']?> id="img" alt="" class="imgDisplay">
-          
           <input type="file" name="" id="fileImg">
         </td>
         <td>
-          Giá:
+        <p class="title">Giá:</p>
           <input type="text" name="courseFee" id="courseFee" value=<?php echo $row['courseFee']?>>
         </td>
       </tr>
       <tr>
         <td>
           <button class="btnXong" type="submit"><a href="" id="btnCapNhatKhoaHoc">Cập nhật</a></button>
-          <button class="btnXong"><a href="index.php?quanly=khoahoc">Back</a></button>
+          <button class="btnXong" style="background-color: #264653; margin-left: 10px;"><a href="index.php?quanly=khoahoc">Hủy</a></button>
         </td>
         
         <td>

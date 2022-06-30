@@ -21,6 +21,19 @@
 
 ?>
 <style>
+  .themKhoaHoc{
+    padding: 0;
+        margin: 0; 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+    
+  }
+  .themKhoaHoc .head{
+    text-align: center;
+    font-size: 30px;
+    margin: 30px;
+    color: #7CC242;
+  }
   .themKhoaHoc table{
     width: 80%;
     margin: 0 auto;
@@ -45,46 +58,60 @@
     max-width: 500px;
     min-width: 300px;
   }
+  .themKhoaHoc input[type="file"]{
+    font-size: 20px;
+  }
 
   .btnXong{
-    padding: 10px;
+    cursor: pointer;
+    padding:10px 20px;
+    font-size: 20px;
     background-color: #7CC242;
     border-radius: 16px;
+    border: none; 
     color: white;
-    font-weight: 900;
+    font-weight: 500;
+  }
+  .btnXong:hover{
+    opacity: 0.7;
   }
   .btnXong a{
+    color: #fff;
     text-decoration: none;
-    color: white;
   }
- 
   .btnXoaKhoaHoc{
     color: red;
     font-weight: 900;
   }
-  
+  table .title{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 
 </style>
 <div class="themKhoaHoc" id="themKhoaHoc">
+  <h2 class="head">
+    Nhập thông tin khóa học
+  </h2>
   <form action="themkhoahoc.php" method="POST" enctype="multipart/form-data">
     <table>
       <tr>
         <td>
-          <p>Tên khóa học:</p>
+          <p class="title">Tên khóa học:</p>
           <input type="text" name="tenkhoahoc" id="" >
         </td>
         <td>
-          <p>Mô tả: </p>
+          <p class="title">Mô tả: </p>
           <input type="text" name="mota" id="" >
         </td>
       </tr>
       <tr>
         <td>
-          <p>Ảnh:</p>
+          <p class="title">Ảnh:</p>
           <input type="file" name="img" id="">
         </td>
         <td>
-          <p>Giá:</p>
+          <p class="title">Giá:</p>
           <input type="number" name="gia" id="" >
         </td>
       </tr>
@@ -93,17 +120,17 @@
           
         </td>
         <td>
-          <p>Video giới thiệu:</p>
+          <p class="title">Video giới thiệu:</p>
           <input type="text" name="video_id" id="" >
         </td>
       </tr>
       <tr>
         <td>
-          <p>Mã danh mục:</p>
+          <p class="title">Mã danh mục:</p>
           <input type="text" name="category_id" id="" >
         </td>
         <td>
-          <p>Mã giáo viên giảng dạy: </p>
+          <p class="title">Mã giáo viên giảng dạy: </p>
           <input type="text" name="teacher_id" id="" >
         </td>
       </tr>
@@ -113,7 +140,7 @@
         </td>
         
         <td>
-          <button class="btnXong"><a href="index.php?quanly=khoahoc">Back</a></button>
+          <button class="btnXong" style="background-color: #264653;"><a href="index.php?quanly=khoahoc">Hủy</a></button>
         </td>
         
       </tr>

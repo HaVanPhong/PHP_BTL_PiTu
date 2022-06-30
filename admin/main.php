@@ -50,6 +50,8 @@
                     include("suasinhvien.php");
                 }elseif($bientam=='qlnap'){
                     include("quanlynaptien.php");
+                }elseif($bientam=='qlsms'){
+                    include("quanlysms.php");
                 }
                 elseif ($bientam=='logout'){
                     // unset($_SESSION["isLogined"]);

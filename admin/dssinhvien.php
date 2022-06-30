@@ -61,7 +61,7 @@
     table{
         width: 80%;
         border-collapse: collapse;
-        margin: 20px auto;
+        margin: 100px auto;
         text-align: center;
     }
     .dssinhvien .title{

@@ -1,21 +1,20 @@
 <?php
     include 'uploadfile.php';
     $idAccount = $_SESSION['id'] ;
-    echo $idAccount;
     $sqlSelect = "SELECT * FROM account WHERE accountID = $idAccount";
     $query = mysqli_query($connect,$sqlSelect);
     $row = mysqli_fetch_array($query);
     if(isset($_POST["btnNapThe"])){
+        $timestamp=strtotime("+7 hours");
         $cost= $_POST['cost'];
         $img_link= upload($_FILES['imgCheck']);
-        $sqlInsert = "INSERT INTO `recharge`(`cost`, `imgCheck`, `accountID`) VALUES ('$cost','$img_link','$idAccount')";
+        $sqlInsert = "INSERT INTO `recharge`(`cost`, `imgCheck`, `timestamp`, `accountID`) VALUES ('$cost','$img_link','$timestamp','$idAccount')";
         $queryInsert = mysqli_query($connect, $sqlInsert);
-        echo $queryInsert;
-        // if($queryInsert){
-        //     echo ' <script language="javascript">alert("Chúng tôi sẽ xác nhận yêu cầu nạp tiền của bạn trong vài phút");</script>';
-        //     }
-        // // Trở về trang danh sách
-        // echo ' <script language="javascript">window.location="index.php?quanly=thongtin"</script> ';
+        if($queryInsert){
+            echo ' <script language="javascript">alert("Chúng tôi sẽ xác nhận yêu cầu nạp tiền của bạn trong vài phút");</script>';
+            }
+        // Trở về trang danh sách
+        echo ' <script language="javascript">window.location="index.php?quanly=thongtin"</script> ';
     }
 ?>
 <div class="recharge">
@@ -34,6 +33,7 @@
         <p class="title">Xác nhận lại với hình ảnh biên lai của bạn</p>
         <input type="file" name="imgCheck" ><br>
         <button type="submit" name="btnNapThe" class="btnNapThe">Nạp thẻ</button>
+
     </form>
 </div>
 <style>
