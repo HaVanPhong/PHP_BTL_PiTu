@@ -29,9 +29,11 @@
 
 <div class="list_course_category">
 <div class="list" align="center">
-<form action="" id="formSearch" method="POST" enctype="multipart/form-data">
-        <input type="text" placeholder="Tìm kiếm khóa học" name="search" id="inpSearch">
-</form>
+    <?php if ($_GET['quanly']=='khoaHoc') {?>
+        <form action="" id="formSearch" method="POST" enctype="multipart/form-data">
+                <input type="text" placeholder="Tìm kiếm khóa học" name="search" id="inpSearch">
+        </form>
+    <?php }?>
 <ul class="course_list">
     <?php
         while($row_pro=mysqli_fetch_array($query_show)){
