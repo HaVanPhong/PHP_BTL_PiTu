@@ -64,12 +64,15 @@
             if($row_data['role']==1){
                 //user
                 header("Location:index.php");
-            }elseif($row_data['role']==2){
+            }else if($row_data['role']==2){
                 //teacher
-                header("Location:#");
-            }else{
+                header("Location:index.php");
+            }else if($row_data['role']==3){
+
                 //admin
-                header("Location: http://localhost/PHP_BTL_PiTu/admin/index.php");
+                header("Location: http://localhost/BTLPHP/PHP_BTL_PiTu/admin/index.php");
+            }else{
+                header("Location:index.php");
             }
         }else{
 			echo ' <script language="javascript">alert("Tài khoản không đúng, vui lòng nhập lại");</script>';

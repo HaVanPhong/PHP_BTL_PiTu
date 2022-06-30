@@ -99,21 +99,6 @@
         width: 16%;
     }
 
-    .btTaoKhoanThu input {
-        border: none;
-        border-radius: 15px;
-        padding: 8px;
-        width: 220px;
-        margin-top: 10px;
-        background-color: #7cc242;
-        color: white;
-        margin-left: 74%;
-
-    }
-
-    .btTaoKhoanThu input:hover {
-        opacity: 0.5;
-    }
 </style>
 
 <form action="" method="post">
@@ -263,9 +248,6 @@
             ?>
 </div>
 
-<div class="btTaoKhoanThu">
-    <input type="submit" value="Tạo khoản thu" name="btTaoKhoanThu">
-</div>
 
 
 <!-- thêm khoan thu -->
