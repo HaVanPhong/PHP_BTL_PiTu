@@ -80,11 +80,12 @@
         <a href="index.php?quanly=thongkebaocao">Thống kê báo cáo</a>
     </div>
     <div class="khac">
-        <a href="index.php?quanly=khac" >Khác
+        <div href="index.php?quanly=khac" style="width: 200px; border: none; padding: 0; margin-left: 50px; color: #737373;">Khác
             <div class="listKhac">
-                <a href="index.php?quanly=qlnap">Quản lý nạp tiền</a></>
-                <a href="index.php?quanly=qlsms">Quản lý tin nhắn</a></li>
+                <!-- <a href="#">Quản lý khác</a> -->
+                <a href="index.php?quanly=qlnap">Quản lý nạp tiền</a>
+                <a href="index.php?quanly=qlsms">Quản lý tin nhắn</a>
             </div>
-        </a>
+        </div>
     </div>
 </div>

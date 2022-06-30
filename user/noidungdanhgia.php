@@ -10,7 +10,7 @@
 
     
 ?>
-<div class="main" style="display: flex; align-items: center; justify-content: center;">
+<div class="main" style="display: flex; justify-content: center;">
     <?php while($row = mysqli_fetch_array($query)){?>
         <div class="comment" >
             <div class="nguoidanhgia">
@@ -18,10 +18,9 @@
                 <p><?=$row['studentName']?></p>
             </div>
             <div class="noidung">
-                <p class="tencmt"><?=$row['commentTitle']?></p>
-                <p class="chitiet"><?=$row['commentContent']?></p>
-                
-                <p class="nameCourse"><?=$row['courseName']?></p>
+                <p class="tencmt" style="height: 50px;"><?=$row['commentTitle']?></p>
+                <p class="chitiet" style="height: 100px;"><?=$row['commentContent']?></p>
+                <p class="nameCourse" style="margin-bottom: 10px;"><?=$row['courseName']?></p>
                 <p class="thoigian"><?=$row['commentTime']?></p>
             </div>
         </div>
@@ -115,6 +114,7 @@
     
     .comment{
         padding-left: 50px;
+        width: 30%;
         
     }
     .noidung{

@@ -14,7 +14,7 @@
                     include 'danhmuc.php';
 
                 }elseif ($bientam=='gioiThieu'){
-                    include("#");
+                    include("gioithieu.php");
                 }elseif ($bientam=='khoaHoc'){ 
                    ?>
                 <div class="screenKH">

@@ -18,16 +18,16 @@
 </div>
 
 <div class="chatbox" id="myForm">
-    <h4 class="head-chatbox">Welcome to online chat</h4>
+    <h4 class="head-chatbox">Nhắn tin trực tuyến ngay</h4>
     <div class="chat-area"> 
         <div class="message">
             <img src="./img/ic_account_circle_24px.png" alt="" class="icon-user">
-            <div class="text" style="width: 30%;">Hello</div>
+            <div class="text" style="width: 30%;">Xin chào</div>
             <img src="./img/ic_check_circle_24px.png" alt="" class="icon-seen">
         </div>
         <div class="message">
             <img src="./img/ic_account_circle_24px.png" alt="" class="icon-user">
-            <div class="text">How can I help you?</div>
+            <div class="text">Chúng tôi có thể giúp gì cho bạn</div>
             <img src="./img/ic_check_circle_24px.png" alt="" class="icon-seen">
         </div>
         <div id="chat">
