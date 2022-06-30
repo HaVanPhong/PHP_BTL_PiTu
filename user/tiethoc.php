@@ -15,12 +15,12 @@
     
     if(mysqli_query($connect, $sql)==true){
       echo '<script language="javascript">alert("Thêm bài học mới thành công");</script>'; 
-      header("Location:http://localhost/btlNO2/PHP_BTL_PiTu/user/index.php?quanly=themBaiHoc&id=$idKhoaHoc");
+      header("Location:http://localhost/PHP_BTL_PiTu/user/index.php?quanly=themBaiHoc&id=$idKhoaHoc");
 
 
     }else{
       echo '<script language="javascript">alert("Có lỗi không thể thêm bài học");</script>';
-      header("Location:http://localhost/btlNO2/PHP_BTL_PiTu/user/index.php?quanly=themBaiHoc&id=$idKhoaHoc");
+      header("Location:http://localhost/PHP_BTL_PiTu/user/index.php?quanly=themBaiHoc&id=$idKhoaHoc");
 
     }
    

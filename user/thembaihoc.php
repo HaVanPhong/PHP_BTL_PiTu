@@ -105,7 +105,7 @@
             <ul class="baiHoc">
               <li>
                 <h2 class="tenkhoahoc"><?php echo $row['lessonName'];?></h2>
-                <iframe src="https://youtube.com/embed/'.$row['lessonVideo'].'"></iframe>
+                <iframe src=<?php echo "https://youtube.com/embed/".$row['lessonVideo']?>></iframe>
               </li>
               
             </ul>

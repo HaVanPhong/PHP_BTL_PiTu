@@ -64,7 +64,7 @@
                     unset($_SESSION["name"]);
                     unset($_SESSION["role"]);
                     unset($_SESSION["isLogined"]);
-                    header("Location:http://localhost/BTLPHP/PHP_BTL_PiTu/user/index.php?quanly=login");
+                    header("Location:http://localhost/PHP_BTL_PiTu/user/index.php?quanly=login");
                 }
                 else { ?>
 

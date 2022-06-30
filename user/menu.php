@@ -9,7 +9,7 @@
             <li><a href="index.php?quanly=blog" >Blog</a></li>
             <li><a href="index.php?quanly=lienHe" >Liên hệ</a></li>  
             <li>
-                <a href="index.php?quanly=find" ><i class="fa fa-search" aria-hidden="true"></i></a>
+                <a href="index.php?quanly=khoaHoc" ><i class="fa fa-search" aria-hidden="true"></i></a>
             </li>                                    
             <li>
             <?php

@@ -70,7 +70,7 @@
             }else if($row_data['role']==3){
 
                 //admin
-                header("Location: http://localhost/BTLPHP/PHP_BTL_PiTu/admin/index.php");
+                header("Location: http://localhost/PHP_BTL_PiTu/admin/index.php");
             }else{
                 header("Location:index.php");
             }

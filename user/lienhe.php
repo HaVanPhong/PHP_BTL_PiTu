@@ -11,7 +11,7 @@
 ?>
 <div class="contact">
     <hr>
-    <h2>Chúng tôi có thể giúp gì cho bạn, <?php echo $row['useName'];?></h2>
+    <h2>Chúng tôi có thể giúp gì cho bạn, <?php if (isset($row['useName'])) echo $row['useName'];?></h2>
     <h3 style="color: #737373"><?php if(!isset($_SESSION['id'])){
         echo '<br>Hãy <a href = "index.php?quanly=login" style="color: #7CC242">Đăng nhập</a>  để gửi phản hồi đến chúng tôi';
     }?></h3>
